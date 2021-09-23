@@ -2,12 +2,14 @@ const express = require('express');
 const app = express();
 const {Pool} = require('pg');
 const port = process.env.PORT || 5000;
+let env = require("dotenv").config();
 
+// credentials for the database connection. values stored in an env file
 const credentials = {
-    user: 'wcctptsf',
-    password: 'oZ7P9TS7EQkfZRSfKYjzl59_ZdcYOFD8',
-    host: 'chunee.db.elephantsql.com',
-    database: 'wcctptsf'
+    user: process.env.PG_USER,
+    password: process.env.PG_PASSWORD,
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE
 };
 
 // connection is created here
